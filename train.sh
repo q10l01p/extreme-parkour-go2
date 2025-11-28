@@ -21,7 +21,7 @@ python legged_gym/legged_gym/scripts/train.py \
   --num_envs 512 \
   --proj_name "${PROJ_NAME}" \
   --exptid "${TEACHER_EXPTID}" \
-  --max_iterations 10 \
+  --max_iterations 100000 \
   --wandb_offline
 
 echo ">>> 阶段二：在教师策略基础上训练 Go2 学生策略（${STUDENT_EXPTID}，视觉蒸馏）..."
@@ -33,7 +33,7 @@ python legged_gym/legged_gym/scripts/train.py \
   --exptid "${STUDENT_EXPTID}" \
   --resumeid "${TEACHER_EXPTID}" \
   --use_camera \
-  --max_iterations 10 \
+  --max_iterations 100000 \
   --wandb_offline
 
 echo ">>> 两阶段训练完成。教师 run: ${TEACHER_EXPTID}，学生 run: ${STUDENT_EXPTID}"
